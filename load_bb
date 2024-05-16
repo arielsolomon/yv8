@@ -1,8 +1,9 @@
 import torch
 from ultralytics import YOLO
 
-model = YOLO('yolov8s.pt')
+model = YOLO('yolov8s.pt').float()
 start_idx = 0
-end_idx = 22
+end_idx = 21
 bb_neck_layers = model.model._modules['model'][start_idx:end_idx]
 print('y')
+torch.save(bb_neck_layers, 'bb_neck.pt')
